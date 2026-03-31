@@ -1,0 +1,299 @@
+/* ==UserStyle==
+@name Kick Catppuccin
+@namespace github.com/catppuccin/userstyles/styles/kick
+@version 0.0.1
+@description Soothing pastel theme for Kick
+@author Catppuccin
+@license MIT
+
+@preprocessor less
+@var select lightFlavor "Light Flavor" ["latte:Latte*", "frappe:Frappé", "macchiato:Macchiato", "mocha:Mocha"]
+@var select darkFlavor "Dark Flavor" ["latte:Latte", "frappe:Frappé", "macchiato:Macchiato", "mocha:Mocha*"]
+@var select accentColor "Accent" ["rosewater:Rosewater", "flamingo:Flamingo", "pink:Pink", "mauve:Mauve*", "red:Red", "maroon:Maroon", "peach:Peach", "yellow:Yellow", "green:Green", "teal:Teal", "blue:Blue", "sapphire:Sapphire", "sky:Sky", "lavender:Lavender", "subtext0:Gray"]
+==/UserStyle== */
+
+@import "https://userstyles.catppuccin.com/lib/lib.less";
+
+@-moz-document domain("kick.com") {
+  /* Kick has no light/dark toggle — it's dark-only.
+     We apply based on user's system preference. */
+  :root {
+    @media (prefers-color-scheme: light) {
+      #catppuccin(@lightFlavor);
+    }
+    @media (prefers-color-scheme: dark) {
+      #catppuccin(@darkFlavor);
+    }
+  }
+
+  #catppuccin(@flavor) {
+    #lib.palette();
+    #lib.defaults();
+
+    color-scheme: if(@flavor = latte, light, dark);
+
+    ::selection {
+      background-color: fade(@accent, 30%);
+    }
+
+    input,
+    textarea {
+      &::placeholder {
+        color: @subtext0 !important;
+      }
+    }
+
+    /* ===========================
+       SURFACE / BACKGROUND COLORS
+       =========================== */
+
+    body,
+    .bg-surface-lowest {
+      background-color: @base !important;
+    }
+
+    .bg-surface-base {
+      background-color: @mantle !important;
+    }
+
+    .bg-surface-highest,
+    .bg-secondary-base {
+      background-color: @surface0 !important;
+    }
+
+    .bg-primary-base {
+      background-color: @accent !important;
+    }
+
+    .bg-disabled-base {
+      background-color: @surface1 !important;
+    }
+
+    /* ===========================
+       TEXT COLORS
+       =========================== */
+
+    .text-white,
+    .text-surface-onSurface {
+      color: @text !important;
+    }
+
+    .text-surface-onSurfaceSecondary,
+    .text-subtle {
+      color: @subtext0 !important;
+    }
+
+    .text-neutral {
+      color: @overlay2 !important;
+    }
+
+    .text-primary-onPrimary {
+      color: @crust !important;
+    }
+
+    .text-secondary-onSecondary {
+      color: @text !important;
+    }
+
+    .text-primary-base {
+      color: @accent !important;
+    }
+
+    .text-disabled-onSurface {
+      color: @overlay0 !important;
+    }
+
+    /* ===========================
+       BORDERS & DIVIDERS
+       =========================== */
+
+    .bg-outline-decorative,
+    .border-outline-region {
+      background-color: @surface1 !important;
+      border-color: @surface1 !important;
+    }
+
+    /* ===========================
+       NAVBAR & SIDEBAR
+       =========================== */
+
+    nav.bg-surface-lowest {
+      background-color: @mantle !important;
+      box-shadow: 0px 2px 4px 0px fade(@crust, 40%) !important;
+    }
+
+    input[data-testid="search"] {
+      background-color: @base !important;
+      border-color: @surface1 !important;
+      color: @text !important;
+    }
+
+    #sidebar-wrapper {
+      background-color: @mantle !important;
+    }
+
+    [data-state="active"].bg-surface-highest,
+    [data-state="active"][class*="bg-surface-highest"] {
+      background-color: @surface0 !important;
+    }
+
+    [data-state="active"][class*="!bg-secondary-base"] {
+      background-color: @accent !important;
+      color: @crust !important;
+    }
+
+    /* ===========================
+       CHATROOM
+       =========================== */
+
+    #channel-chatroom,
+    #chatroom-messages,
+    #chat-input-wrapper {
+      background-color: @base !important;
+    }
+
+    .border-\[#24272c\] {
+      border-color: @surface0 !important;
+    }
+
+    [class*="group-hover:bg-surface-highest"]:hover,
+    .betterhover\:group-hover\:bg-surface-highest:hover {
+      background-color: @surface0 !important;
+    }
+
+    .betterhover\:hover\:bg-\[\#474f54\]:hover {
+      background-color: @surface1 !important;
+    }
+
+    .bg-\[#0F1214\],
+    [style*="rgb(15, 18, 20)"],
+    [style*="rgb(25, 27, 31)"] {
+      background-color: @crust !important;
+    }
+
+    #chat-input-wrapper:focus-within {
+      background-color: @crust !important;
+      ring-color: @text !important;
+    }
+
+    .text-\[\#768087\] { color: @overlay0 !important; }
+    .text-\[\#A8ADB3\] { color: @subtext0 !important; }
+
+    /* ===========================
+       CHAT USERNAME COLOR REMAP
+       =========================== */
+
+    #chatroom-messages button.inline.font-bold {
+        &[style*="rgb(255, 216, 153)"], &[style*="rgb(255, 196, 102)"] { color: @peach !important; }
+        &[style*="rgb(255, 157, 0)"]   { color: @yellow !important; }
+        &[style*="rgb(251, 207, 216)"] { color: @rosewater !important; }
+        &[style*="rgb(242, 112, 138)"] { color: @pink !important; }
+        &[style*="rgb(233, 17, 60)"]   { color: @red !important; }
+        &[style*="rgb(222, 178, 255)"] { color: @lavender !important; }
+        &[style*="rgb(188, 102, 255)"] { color: @mauve !important; }
+        &[style*="rgb(185, 214, 246)"] { color: @sky !important; }
+        &[style*="rgb(114, 172, 237)"] { color: @sapphire !important; }
+        &[style*="rgb(20, 117, 225)"]  { color: @blue !important; }
+        &[style*="rgb(186, 254, 163)"], &[style*="rgb(117, 253, 70)"]  { color: @green !important; }
+        &[style*="rgb(147, 235, 224)"], &[style*="rgb(49, 214, 194)"], &[style*="rgb(0, 204, 179)"] { color: @teal !important; }
+    }
+
+    /* Color Picker in settings */
+    [aria-label^="Pick color"] div {
+        &[style*="rgb(255, 216, 153)"], &[style*="rgb(255, 196, 102)"] { background-color: @peach !important; }
+        &[style*="rgb(255, 157, 0)"]   { background-color: @yellow !important; }
+        &[style*="rgb(251, 207, 216)"] { background-color: @rosewater !important; }
+        &[style*="rgb(242, 112, 138)"] { background-color: @pink !important; }
+        &[style*="rgb(233, 17, 60)"]   { background-color: @red !important; }
+        &[style*="rgb(222, 178, 255)"] { background-color: @lavender !important; }
+        &[style*="rgb(188, 102, 255)"] { background-color: @mauve !important; }
+        &[style*="rgb(185, 214, 246)"] { background-color: @sky !important; }
+        &[style*="rgb(114, 172, 237)"] { background-color: @sapphire !important; }
+        &[style*="rgb(20, 117, 225)"]  { background-color: @blue !important; }
+        &[style*="rgb(186, 254, 163)"], &[style*="rgb(117, 253, 70)"]  { background-color: @green !important; }
+        &[style*="rgb(147, 235, 224)"], &[style*="rgb(49, 214, 194)"], &[style*="rgb(0, 204, 179)"] { background-color: @teal !important; }
+    }
+
+    /* ===========================
+       KICK BRANDING & UI ELEMENTS
+       =========================== */
+
+    /* Logo & Icons */
+    .bg-green-500, div[class*="bg-green-500"], .rounded-full.bg-green-500,
+    .text-\[rgb\(83\,252\,24\)\] {
+      background-color: @accent !important;
+      color: @accent !important;
+    }
+
+    img[src*="kick-logo.svg"], img[alt="Kick Logo"] {
+      object-position: -9999px -9999px !important;
+      background-color: @accent !important;
+      -webkit-mask: url("/img/kick-logo.svg") no-repeat center !important;
+      mask: url("/img/kick-logo.svg") no-repeat center !important;
+      -webkit-mask-size: contain !important;
+      mask-size: contain !important;
+      width: 97px !important;
+      height: 26px !important;
+      display: inline-block !important;
+    }
+
+    /* Verified and other SVGs */
+    svg g path[fill*="url(#paint0_linear"],
+    svg path[fill^="url(#paint"],
+    button[data-testid="kicks-top-nav"] svg path {
+      fill: @accent !important;
+    }
+
+    stop[stop-color="#1EFF00"], stop[stop-color="#00FF8C"], stop[stop-color="#53FC18"] {
+      stop-color: @accent !important;
+    }
+
+    /* Channel points */
+    .text-green-200, [data-testid="channel-points-value"] {
+      color: @accent !important;
+      fill: @accent !important;
+    }
+
+    /* Special Chat Messages (Bots/Borders) */
+    .border-green-500, div[class*="border-green-500"] {
+      border-color: @accent !important;
+    }
+
+    /* Settings Tabs */
+    [data-state="active"] .bg-surface-onSurfacePrimary,
+    a[data-state="active"] {
+      background-color: @accent !important;
+      border-bottom-color: @accent !important;
+      color: @accent !important;
+    }
+
+    /* Error Page Toggles */
+    a.bg-\[\#53fc18\], button.bg-\[\#53fc18\] {
+      background-color: @accent !important;
+      color: @crust !important;
+    }
+
+    /* ===========================
+       MISCELLANEOUS
+       =========================== */
+
+    #nprogress .bar { background: @accent !important; }
+    .animate-pulse { background-color: @surface0 !important; }
+
+    footer {
+      background-color: @crust !important;
+      color: @subtext0 !important;
+    }
+
+    .markdown-panel {
+      color: @subtext1 !important;
+      a { color: @accent !important; }
+    }
+
+    & when (@flavor = latte) {
+      .text-white { color: @text !important; }
+      svg[fill="white"] { fill: @text !important; }
+      img[alt="Kick Logo"] { filter: brightness(0); }
+    }
+  }
+}
