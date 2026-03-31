@@ -519,7 +519,7 @@ userstyles:
     link: https://kick.com
     categories: [entertainment]
     color: green
-    maintainers: [Len137]
+    maintainers: [*Len137]
   lastfm:
     name: Last.fm
     link: https://last.fm
