@@ -47,24 +47,33 @@
        SURFACE / BACKGROUND COLORS
        =========================== */
 
+    /* Main page background */
     body,
     .bg-surface-lowest {
       background-color: @base !important;
     }
 
+    /* Card / section backgrounds */
     .bg-surface-base {
       background-color: @mantle !important;
     }
 
-    .bg-surface-highest,
+    /* Hover / active / elevated surfaces */
+    .bg-surface-highest {
+      background-color: @surface0 !important;
+    }
+
+    /* Secondary buttons */
     .bg-secondary-base {
       background-color: @surface0 !important;
     }
 
+    /* Primary buttons (subscribe, chat send) */
     .bg-primary-base {
       background-color: @accent !important;
     }
 
+    /* Disabled backgrounds */
     .bg-disabled-base {
       background-color: @surface1 !important;
     }
@@ -73,32 +82,39 @@
        TEXT COLORS
        =========================== */
 
+    /* Primary text */
     .text-white,
     .text-surface-onSurface {
       color: @text !important;
     }
 
+    /* Secondary text */
     .text-surface-onSurfaceSecondary,
     .text-subtle {
       color: @subtext0 !important;
     }
 
+    /* Neutral text (timestamps, etc.) */
     .text-neutral {
       color: @overlay2 !important;
     }
 
+    /* Text on primary buttons */
     .text-primary-onPrimary {
       color: @crust !important;
     }
 
+    /* Text on secondary buttons */
     .text-secondary-onSecondary {
       color: @text !important;
     }
 
+    /* Primary accent color (viewer count, links) */
     .text-primary-base {
       color: @accent !important;
     }
 
+    /* Disabled text */
     .text-disabled-onSurface {
       color: @overlay0 !important;
     }
@@ -107,14 +123,18 @@
        BORDERS & DIVIDERS
        =========================== */
 
-    .bg-outline-decorative,
-    .border-outline-region {
+    /* Decorative dividers */
+    .bg-outline-decorative {
       background-color: @surface1 !important;
+    }
+
+    /* Input borders */
+    .border-outline-region {
       border-color: @surface1 !important;
     }
 
     /* ===========================
-       NAVBAR & SIDEBAR
+       NAVBAR
        =========================== */
 
     nav.bg-surface-lowest {
@@ -122,69 +142,312 @@
       box-shadow: 0px 2px 4px 0px fade(@crust, 40%) !important;
     }
 
+    /* Search input */
     input[data-testid="search"] {
       background-color: @base !important;
       border-color: @surface1 !important;
       color: @text !important;
     }
 
+    /* ===========================
+       SIDEBAR
+       =========================== */
+
     #sidebar-wrapper {
       background-color: @mantle !important;
     }
 
+    /* Active sidebar item */
     [data-state="active"].bg-surface-highest,
-    [data-state="active"][class*="bg-surface-highest"] {
-      background-color: @surface0 !important;
+    [data-state="active"] {
+      &[class*="bg-surface-highest"] {
+        background-color: @surface0 !important;
+      }
     }
 
+    /* Active sidebar link with accent */
     [data-state="active"][class*="!bg-secondary-base"] {
       background-color: @accent !important;
       color: @crust !important;
+    }
+
+    /* Live indicator dot */
+    .bg-green-500 {
+      background-color: @green !important;
+    }
+
+    /* Live border on avatar */
+    .border-green-500 {
+      border-color: @green !important;
     }
 
     /* ===========================
        CHATROOM
        =========================== */
 
-    #channel-chatroom,
-    #chatroom-messages,
-    #chat-input-wrapper {
+    #channel-chatroom {
       background-color: @base !important;
     }
 
+    /* Chat header border */
     .border-\[#24272c\] {
       border-color: @surface0 !important;
     }
 
-    [class*="group-hover:bg-surface-highest"]:hover,
-    .betterhover\:group-hover\:bg-surface-highest:hover {
-      background-color: @surface0 !important;
+    /* Chat messages area */
+    #chatroom-messages {
+      background-color: @base !important;
     }
 
-    .betterhover\:hover\:bg-\[\#474f54\]:hover {
-      background-color: @surface1 !important;
+    /* Chat message hover */
+    [class*="group-hover:bg-surface-highest"],
+    .betterhover\:group-hover\:bg-surface-highest {
+      &:hover {
+        background-color: @surface0 !important;
+      }
     }
 
+    /* Chat username hover background */
+    .betterhover\:hover\:bg-\[\#474f54\] {
+      &:hover {
+        background-color: @surface1 !important;
+      }
+    }
+
+    /* Chat panels (emotes, settings, etc.) */
     .bg-\[#0F1214\],
     [style*="rgb(15, 18, 20)"],
     [style*="rgb(25, 27, 31)"] {
       background-color: @crust !important;
     }
 
+    /* Chat input wrapper */
+    #chat-input-wrapper {
+      border-color: @surface1 !important;
+      background-color: @base !important;
+    }
+
+    /* Chat input focus ring */
     #chat-input-wrapper:focus-within {
       background-color: @crust !important;
+      border-color: transparent !important;
+      outline: none !important;
       ring-color: @text !important;
     }
 
-    .text-\[\#768087\] { color: @overlay0 !important; }
-    .text-\[\#A8ADB3\] { color: @subtext0 !important; }
+    /* Chat input placeholder */
+    .text-\[\#768087\] {
+      color: @overlay0 !important;
+    }
 
+    /* Chat reply button background */
+    [class*="z-absolute"][class*="bg-secondary-base"] {
+      background-color: @surface0 !important;
+    }
+
+    /* Slow mode indicator text */
+    .text-\[\#A8ADB3\] {
+      color: @subtext0 !important;
+    }
+
+    /* Emote picker hover */
+    .betterhover\:hover\:bg-white\/10:hover {
+      background-color: fade(@text, 10%) !important;
+    }
+
+    /* Chat settings items hover */
+    .betterhover\:hover\:\!bg-\[\#2A2D32\]:hover {
+      background-color: @surface0 !important;
+    }
+
+    /* ===========================
+       CHANNEL PAGE
+       =========================== */
+
+    /* Channel content area */
+    #channel-content {
+      background-color: @base !important;
+    }
+
+    /* Video player background */
+    .bg-black {
+      background-color: @crust !important;
+    }
+
+    /* Category tags */
+    a[class*="bg-secondary-base"][class*="rounded-full"],
+    button[class*="bg-secondary-base"][class*="rounded-full"] {
+      background-color: @surface0 !important;
+      color: @subtext1 !important;
+    }
+
+    /* Channel about section */
+    section.lg\:bg-surface-base {
+      background-color: @mantle !important;
+    }
+
+    /* ===========================
+       PROGRESS BAR (nprogress)
+       =========================== */
+
+    #nprogress .bar {
+      background: @accent !important;
+    }
+
+    #nprogress .peg {
+      box-shadow: 0 0 10px @accent, 0 0 5px @accent !important;
+    }
+
+    #nprogress .spinner-icon {
+      border-top-color: @accent !important;
+      border-left-color: @accent !important;
+    }
+
+    /* ===========================
+       LEADERBOARD
+       =========================== */
+
+    /* Gift rank names */
+    .text-orange-300 {
+      color: @peach !important;
+    }
+
+    .text-orange-500 {
+      color: @peach !important;
+    }
+
+    /* Channel points color */
+    .text-green-200 {
+      color: @green !important;
+    }
+
+    /* ===========================
+       ACCORDION / DROPS
+       =========================== */
+
+    .data-\[state\=open\]\:animate-slideDown,
+    .data-\[state\=closed\]\:animate-slideUp {
+      background-color: @mantle !important;
+    }
+
+    /* ===========================
+       STATE LAYER (hover effects)
+       =========================== */
+
+    .state-layer-surface::before {
+      background-color: @surface0 !important;
+    }
+
+    .state-layer-base::before {
+      background-color: @accent !important;
+    }
+
+    /* ===========================
+       SCROLLBAR STYLING
+       =========================== */
+
+    * {
+      scrollbar-color: @surface1 transparent;
+    }
+
+    *::-webkit-scrollbar-thumb {
+      background-color: @surface1;
+    }
+
+    *::-webkit-scrollbar-track {
+      background-color: transparent;
+    }
+
+    /* ===========================
+       SVG ICONS
+       =========================== */
+
+    svg[fill="white"] path[fill="current"],
+    svg[fill="white"] {
+      fill: @text;
+    }
+
+    /* ===========================
+       KICK BRANDING & LIVE DOT FIX
+       =========================== */
+
+    /* Ta malá zelená tečka u počtu diváků */
+    .bg-green-500, 
+    div[class*="bg-green-500"],
+    .rounded-full.bg-green-500 {
+        background-color: @accent !important;
+    }
+
+    img[src*="kick-logo.svg"],
+    img[alt="Kick Logo"] {
+        /* Totálně skryjeme původní zelený obrázek */
+        object-position: -9999px -9999px !important;
+        background-color: @accent !important;
+        
+        /* Použijeme tvar loga jako masku na pozadí */
+        -webkit-mask: url("/img/kick-logo.svg") no-repeat center !important;
+        mask: url("/img/kick-logo.svg") no-repeat center !important;
+        -webkit-mask-size: contain !important;
+        mask-size: contain !important;
+
+        /* Musíme zachovat rozměry, jinak logo zmizí */
+        width: 97px !important;
+        height: 26px !important;
+        display: inline-block !important;
+    }
+
+    /* ===========================
+       KICK ELEMENTS COLOR FIX
+       =========================== */
+
+    /* 1. VERIFIED ICON (přebití lineárního gradientu) */
+    svg g path[fill*="url(#paint0_linear"] {
+        fill: @accent !important;
+    }
+    
+    /* 2. VERIFIED ICON V "ABOUT" A JINDE */
+    svg path[fill^="url(#paint"] {
+        fill: @accent !important;
+    }
+
+    /* 3. GET KICKs BUTTON (Ikona boty) */
+    button[data-testid="kicks-top-nav"] svg path {
+        fill: @accent !important;
+    }
+
+    /* 4. VĚRNOSTNÍ BODY (Channel Points) */
+    .text-green-200,
+    svg.text-green-200,
+    [data-testid="channel-points-value"] {
+        color: @accent !important;
+        fill: @accent !important;
+    }
+
+    /* 5. POČET FOLLOWERS */
+    .text-surface-onSurfacePrimary,
+    .text-surface-onSurfaceSecondary span {
+        color: @text !important;
+    }
+
+    span.text-surface-onSurfacePrimary {
+        color: @accent !important;
+    }
+
+    /* 6. DODATEČNÁ OPRAVA PRO SVG DEFINICE */
+    stop[stop-color="#1EFF00"], 
+    stop[stop-color="#00FF8C"],
+    stop[stop-color="#53FC18"] {
+        stop-color: @accent !important;
+    }
+      
     /* ===========================
        CHAT USERNAME COLOR REMAP
        =========================== */
 
+    /* Mapování Kick barev na Catppuccin paletu */
     #chatroom-messages button.inline.font-bold {
-        &[style*="rgb(255, 216, 153)"], &[style*="rgb(255, 196, 102)"] { color: @peach !important; }
+        &[style*="rgb(255, 216, 153)"] { color: @peach !important; }
+        &[style*="rgb(255, 196, 102)"] { color: @peach !important; }
         &[style*="rgb(255, 157, 0)"]   { color: @yellow !important; }
         &[style*="rgb(251, 207, 216)"] { color: @rosewater !important; }
         &[style*="rgb(242, 112, 138)"] { color: @pink !important; }
@@ -194,13 +457,16 @@
         &[style*="rgb(185, 214, 246)"] { color: @sky !important; }
         &[style*="rgb(114, 172, 237)"] { color: @sapphire !important; }
         &[style*="rgb(20, 117, 225)"]  { color: @blue !important; }
-        &[style*="rgb(186, 254, 163)"], &[style*="rgb(117, 253, 70)"]  { color: @green !important; }
-        &[style*="rgb(147, 235, 224)"], &[style*="rgb(49, 214, 194)"], &[style*="rgb(0, 204, 179)"] { color: @teal !important; }
+        &[style*="rgb(186, 254, 163)"] { color: @green !important; }
+        &[style*="rgb(117, 253, 70)"]  { color: @green !important; }
+        &[style*="rgb(147, 235, 224)"] { color: @teal !important; }
+        &[style*="rgb(49, 214, 194)"]  { color: @teal !important; }
+        &[style*="rgb(0, 204, 179)"]   { color: @teal !important; }
     }
 
-    /* Color Picker in settings */
     [aria-label^="Pick color"] div {
-        &[style*="rgb(255, 216, 153)"], &[style*="rgb(255, 196, 102)"] { background-color: @peach !important; }
+        &[style*="rgb(255, 216, 153)"] { background-color: @peach !important; }
+        &[style*="rgb(255, 196, 102)"] { background-color: @peach !important; }
         &[style*="rgb(255, 157, 0)"]   { background-color: @yellow !important; }
         &[style*="rgb(251, 207, 216)"] { background-color: @rosewater !important; }
         &[style*="rgb(242, 112, 138)"] { background-color: @pink !important; }
@@ -210,90 +476,157 @@
         &[style*="rgb(185, 214, 246)"] { background-color: @sky !important; }
         &[style*="rgb(114, 172, 237)"] { background-color: @sapphire !important; }
         &[style*="rgb(20, 117, 225)"]  { background-color: @blue !important; }
-        &[style*="rgb(186, 254, 163)"], &[style*="rgb(117, 253, 70)"]  { background-color: @green !important; }
-        &[style*="rgb(147, 235, 224)"], &[style*="rgb(49, 214, 194)"], &[style*="rgb(0, 204, 179)"] { background-color: @teal !important; }
+        &[style*="rgb(186, 254, 163)"] { background-color: @green !important; }
+        &[style*="rgb(117, 253, 70)"]  { background-color: @green !important; }
+        &[style*="rgb(147, 235, 224)"] { background-color: @teal !important; }
+        &[style*="rgb(49, 214, 194)"]  { background-color: @teal !important; }
+        &[style*="rgb(0, 204, 179)"]   { background-color: @teal !important; }
     }
-
+      
     /* ===========================
-       KICK BRANDING & UI ELEMENTS
+       CHAT SPECIAL MESSAGES (BOTS)
        =========================== */
 
-    /* Logo & Icons */
-    .bg-green-500, div[class*="bg-green-500"], .rounded-full.bg-green-500,
+    .border-green-500,
+    div[class*="border-green-500"] {
+        border-color: @accent !important;
+    }
+
+    .border-green-500 svg path[fill^="url(#paint"],
+    .border-green-500 svg g path[fill^="url(#paint"] {
+        fill: @accent !important;
+    }
+
+    .border-green-500 .text-green-500 {
+        color: @accent !important;
+    }
+      
+    /* ===========================
+       KICK GREEN UI CLEANUP
+       =========================== */
+
+    /* 1. Oddělovač "New messages" v chatu */
+    .bg-green-500, 
+    div[class*="bg-green-500"] {
+        background-color: @accent !important;
+    }
     .text-\[rgb\(83\,252\,24\)\] {
-      background-color: @accent !important;
-      color: @accent !important;
+        color: @accent !important;
     }
 
-    img[src*="kick-logo.svg"], img[alt="Kick Logo"] {
-      object-position: -9999px -9999px !important;
-      background-color: @accent !important;
-      -webkit-mask: url("/img/kick-logo.svg") no-repeat center !important;
-      mask: url("/img/kick-logo.svg") no-repeat center !important;
-      -webkit-mask-size: contain !important;
-      mask-size: contain !important;
-      width: 97px !important;
-      height: 26px !important;
-      display: inline-block !important;
+    /* 2. Nadpisy a poděkování */
+    h3.text-green-500,
+    .text-green-500 {
+        color: @accent !important;
     }
 
-    /* Verified and other SVGs */
-    svg g path[fill*="url(#paint0_linear"],
-    svg path[fill^="url(#paint"],
-    button[data-testid="kicks-top-nav"] svg path {
-      fill: @accent !important;
+    /* 3. Progress bar u Drops */
+    div[style*="background-color: rgb(83, 252, 24)"],
+    div[style*="background-color:rgb(83,252,24)"] {
+        background-color: @accent !important;
     }
 
-    stop[stop-color="#1EFF00"], stop[stop-color="#00FF8C"], stop[stop-color="#53FC18"] {
-      stop-color: @accent !important;
+    .group\/accordion {
+        background-color: @surface0 !important;
+        &:hover {
+            background-color: @surface1 !important;
+        }
     }
+      
+    /* ===========================
+       SETTINGS TABS ACCENT FIX
+       =========================== */
 
-    /* Channel points */
-    .text-green-200, [data-testid="channel-points-value"] {
-      color: @accent !important;
-      fill: @accent !important;
-    }
-
-    /* Special Chat Messages (Bots/Borders) */
-    .border-green-500, div[class*="border-green-500"] {
-      border-color: @accent !important;
-    }
-
-    /* Settings Tabs */
     [data-state="active"] .bg-surface-onSurfacePrimary,
+    div[class*="bg-surface-onSurfacePrimary"] {
+        background-color: @accent !important;
+    }
+
+    a[data-state="active"].border-surface-onSurfacePrimary,
     a[data-state="active"] {
-      background-color: @accent !important;
-      border-bottom-color: @accent !important;
-      color: @accent !important;
+        border-bottom-color: @accent !important;
+        color: @accent !important;
     }
 
-    /* Error Page Toggles */
-    a.bg-\[\#53fc18\], button.bg-\[\#53fc18\] {
-      background-color: @accent !important;
-      color: @crust !important;
+    a.state-layer-surface:hover {
+        color: @accent !important;
+        opacity: 0.8;
+    }
+      
+    /* ===========================
+       ERROR PAGE & BIG BUTTON FIX
+       =========================== */
+
+    a.bg-\[\#53fc18\], 
+    button.bg-\[\#53fc18\],
+    .bg-green-500 {
+        background-color: @accent !important;
+        color: @crust !important;
     }
 
+    a.bg-\[\#53fc18\]:hover, 
+    button.bg-\[\#53fc18\]:hover {
+        background-color: fade(@accent, 90%) !important;
+    }
+
+    .focus-visible\:bg-green-500:focus-visible {
+        background-color: @accent !important;
+    }
+
+    a.bg-\[\#53fc18\] svg,
+    button.bg-\[\#53fc18\] svg {
+        fill: @crust !important;
+    }
+      
     /* ===========================
        MISCELLANEOUS
        =========================== */
 
-    #nprogress .bar { background: @accent !important; }
-    .animate-pulse { background-color: @surface0 !important; }
+    img[alt="Kick Logo"] {
+      & when not(@flavor = latte) {
+        filter: brightness(1);
+      }
+      & when (@flavor = latte) {
+        filter: brightness(0);
+      }
+    }
+
+    .markdown-panel {
+      color: @subtext1 !important;
+      a {
+        color: @accent !important;
+      }
+    }
 
     footer {
       background-color: @crust !important;
       color: @subtext0 !important;
     }
 
-    .markdown-panel {
-      color: @subtext1 !important;
-      a { color: @accent !important; }
+    [data-sonner-toaster][data-sonner-theme="dark"] {
+      --normal-bg: @surface0;
+      --normal-border: @surface1;
+      --normal-text: @text;
     }
 
+    .focus-visible\:outline-focusLight:focus-visible {
+      outline-color: @accent !important;
+    }
+
+    .animate-pulse {
+      background-color: @surface0 !important;
+    }
+
+    /* Latte-specific overrides */
     & when (@flavor = latte) {
-      .text-white { color: @text !important; }
-      svg[fill="white"] { fill: @text !important; }
-      img[alt="Kick Logo"] { filter: brightness(0); }
+      .text-white {
+        color: @text !important;
+      }
+
+      svg[fill="white"] path[fill="current"],
+      svg[fill="white"] {
+        fill: @text;
+      }
     }
   }
 }
