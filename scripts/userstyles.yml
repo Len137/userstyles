@@ -514,6 +514,12 @@ userstyles:
     categories: [development]
     color: mauve
     current-maintainers: [*uncenter]
+  kick:
+    name: Kick
+    link: https://kick.com
+    categories: [entertainment]
+    color: green
+    maintainers: [Len137]
   lastfm:
     name: Last.fm
     link: https://last.fm
